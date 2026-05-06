@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>广东芸辉科技 调研简报</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap');
+
+  :root {
+    --green: #2e7d32; --green-bg: #e8f5e9;
+    --red: #c62828; --red-bg: #ffebee;
+    --blue: #1565c0; --blue-bg: #e3f2fd;
+    --navy: #1a237e;
+    --gray: #5f6368; --border: #e0e0e0; --bg: #ffffff;
+    --warn-bg: #fff8e1; --warn-border: #f9a825;
+    --purple-bg: #f3e5f5; --purple: #6a1b9a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #222; background: #f0f2f5; line-height: 1.75; font-size: 15px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 24px 20px; }
+  .page { background: var(--bg); border-radius: 12px; padding: 52px 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+
+  h1 { font-family: "Noto Serif SC", serif; font-size: 28px; font-weight: 700; color: var(--navy); text-align: center; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: var(--gray); font-size: 13px; margin-bottom: 24px; }
+  .header-divider { border: none; border-top: 2px solid var(--navy); margin-bottom: 28px; }
+
+  .exec-summary {
+    background: linear-gradient(135deg, #e8eaf6 0%, #e3f2fd 100%);
+    border: 1px solid #c5cae9;
+    border-left: 5px solid var(--navy);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .exec-summary-title {
+    font-size: 13px; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;
+  }
+  .exec-verdict {
+    font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 10px; line-height: 1.5;
+  }
+  .exec-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .exec-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  }
+  .exec-tag.pos { background: var(--green-bg); color: var(--green); border: 1px solid #a5d6a7; }
+  .exec-tag.neg { background: var(--red-bg); color: var(--red); border: 1px solid #ef9a9a; }
+  .exec-tag.neu { background: var(--purple-bg); color: var(--purple); border: 1px solid #ce93d8; }
+
+  h2 { font-family: "Noto Serif SC", serif; font-size: 19px; font-weight: 700; color: var(--navy); margin-top: 40px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  h3 { font-size: 15px; font-weight: 600; color: #333; margin-top: 22px; margin-bottom: 10px; }
+  h4 { font-size: 14px; font-weight: 600; color: #444; margin-top: 16px; margin-bottom: 8px; }
+  .section-tag { font-size: 12px; font-weight: 400; color: #999; background: #f5f5f5; border-radius: 10px; padding: 2px 8px; }
+  .section-summary { font-size: 14.5px; color: #444; font-weight: 400; margin-bottom: 14px; line-height: 1.7; padding: 10px 14px; background: #fafafa; border-radius: 6px; border-left: 3px solid #c5cae9; }
+
+  .green { color: var(--green); font-weight: 600; }
+  .red { color: var(--red); font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  th, td { padding: 9px 14px; border: 1px solid var(--border); text-align: left; vertical-align: middle; }
+  th { background: #f5f6fa; font-weight: 600; color: #333; white-space: nowrap; }
+  tr:nth-child(even) td { background: #fafafa; }
+  td.better { background: var(--green-bg); }
+
+  .timeline-table td:first-child { white-space: nowrap; font-weight: 600; }
+
+  .source { color: #bdbdbd; font-size: 12px; margin-top: 12px; padding-top: 7px; border-top: 1px dashed #e0e0e0; }
+
+  blockquote { border-left: 4px solid var(--blue); background: var(--blue-bg); padding: 12px 18px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 13.5px; color: #333; }
+  blockquote.warn { border-left-color: var(--red); background: var(--red-bg); }
+  blockquote.success { border-left-color: var(--green); background: var(--green-bg); }
+  blockquote.caution { border-left-color: var(--warn-border); background: var(--warn-bg); }
+
+  .infer-warn {
+    display: flex; align-items: center; gap: 8px;
+    background: #fff3e0; border: 1px solid #ffcc80; border-radius: 6px;
+    padding: 8px 14px; font-size: 12.5px; color: #e65100; margin-bottom: 8px;
+  }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-blue { background: var(--blue-bg); color: var(--blue); }
+
+  .appendix-label { display: inline-block; background: var(--navy); color: #fff; font-size: 12px; padding: 2px 10px; border-radius: 4px; margin-right: 8px; }
+
+  .summary-box { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .summary-item { flex: 1; min-width: 130px; text-align: center; padding: 16px; border-radius: 8px; border: 1px solid var(--border); background: #fff; }
+  .summary-num { font-size: 26px; font-weight: 700; color: var(--navy); }
+  .summary-label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+  pre { font-family: "SF Mono", Monaco, "Cascadia Code", Menlo, monospace; font-size: 12px; line-height: 1.6; background: #f8f9fa; border: 1px solid var(--border); border-radius: 6px; padding: 14px 18px; overflow-x: auto; }
+
+  .conflict-note {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #fff3e0; border: 1px solid #ffb74d; border-radius: 4px;
+    padding: 2px 8px; font-size: 11px; color: #e65100; font-weight: 600;
+  }
+
+  .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 14px 0; }
+
+  .note { font-size: 12.5px; color: var(--gray); font-style: italic; margin: 6px 0; }
+  ul { padding-left: 20px; }
+  ul li { margin-bottom: 6px; font-size: 14px; }
+
+  .footer { text-align: center; color: var(--gray); font-size: 12px; margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+  @media (max-width: 780px) {
+    .comparison-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .page { padding: 24px 16px; }
+    th, td { padding: 6px 8px; font-size: 12px; }
+    .summary-item { min-width: 100px; }
+    .exec-tags { flex-direction: column; }
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <h1>广东芸辉科技有限责任公司</h1>
+  <div class="subtitle">调研简报 · 2026-05-03 · 数据来源：企查查 / 36氪 / 启信宝 / 猎聘 / 亿欧 / 网经社 / 中国政府采购网 / 浙江省网信办等公开渠道</div>
+  <hr class="header-divider">
+
+  <!-- ===== 名称更正提示 ===== -->
+  <blockquote>
+    <strong>🔵 名称确认：</strong>用户搜索的"广东芸辉科技责任有限公司"经核实，正确全称为<strong>「广东芸辉科技有限责任公司」</strong>（"有限责任"而非"责任有限"）。以下报告以工商登记名称为准。
+  </blockquote>
+
+  <!-- ===== 核心结论 ===== -->
+  <div class="exec-summary">
+    <div class="exec-summary-title">📋 核心结论</div>
+    <div class="exec-verdict">
+      芸辉科技是恒生电子（600570.SH）旗下芸泰网络在广东的互联网医疗子公司，2015年在广东省医院协会指导下成立，推出国内首个省级云医院平台"广东云医院"。本质是一家面向公立医院的B2B技术服务商——为医院建互联网医院平台、做处方流转和慢病管理——而非面向C端的独立医疗平台。背靠马云/恒生电子的阿里生态资源（支付宝、阿里健康、阿里云），在广东省内已覆盖近70家医院、全国600+家。但母公司芸泰网络自2021年C轮后超3年无融资（估值仅约5亿）、团队仅33人、APP隐私合规曾被浙江网信办查处，在互联网医疗行业进入"存量搏杀+巨头整合"的2026年，其独立生存空间正在收窄。
+    </div>
+    <div class="exec-tags">
+      <span class="exec-tag pos">✅ 广东省医院协会官方背书+阿里生态资源</span>
+      <span class="exec-tag pos">✅ 公立医院客户稳定、续费型收入（如中山三院90万/年维保）</span>
+      <span class="exec-tag pos">✅ 国内首个省级云医院平台，先发品牌占位</span>
+      <span class="exec-tag neg">⚠️ 母公司芸泰网络2021年C轮后超3年无新融资</span>
+      <span class="exec-tag neg">⚠️ APP隐私合规曾违规（毓璜顶/中日友好医院APP被查处）</span>
+      <span class="exec-tag neu">🔵 互联网医疗行业进入存量整合期，独立平台生存压力大</span>
+    </div>
+  </div>
+
+  <!-- ===== KPI 总览 ===== -->
+  <div class="summary-box">
+    <div class="summary-item">
+      <div class="summary-num">2015<span style="font-size:14px;color:#888">.11</span></div>
+      <div class="summary-label">成立时间</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-num">1,176<span style="font-size:14px;color:#888"> 万</span></div>
+      <div class="summary-label">注册资本</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-num">33<span style="font-size:14px;color:#888"> 人</span></div>
+      <div class="summary-label">参保人数</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-num">3.05<span style="font-size:14px;color:#888"> 亿</span></div>
+      <div class="summary-label">母公司芸泰累计融资（元）</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-num">600<span style="font-size:14px;color:#888">+</span></div>
+      <div class="summary-label">全国合作医院数</div>
+    </div>
+  </div>
+
+  <!-- ===== 一、公司概况 ===== -->
+  <h2>一、公司概况 <span class="section-tag">总览</span></h2>
+  <p class="section-summary">芸辉科技是<span class="green">恒生电子（600570.SH）→芸泰网络→芸辉科技</span>三级股权架构下的广东区域子公司，2015年在广东省医院协会指导下成立，定位为"互联网医疗平台及医疗健康数据协同平台建设运营商"。总经理黄正威同时担任芸泰网络法定代表人。公司本质是一家面向公立医院的<span class="green">B2B技术服务商</span>——不走C端独立平台路线，不做自有医生团队，而是帮医院建系统、做运营。</p>
+
+  <table>
+    <tr><th style="width:140px">指标</th><th>数据</th><th>补充</th></tr>
+    <tr><td>公司全称</td><td>广东芸辉科技有限责任公司</td><td>品牌 广东云医院 / 芸辉科技</td></tr>
+    <tr><td>成立时间</td><td>2015年11月4日</td><td>法定代表人 彭涛</td></tr>
+    <tr><td>注册资本</td><td>1,176.47万元</td><td>—</td></tr>
+    <tr><td>总经理</td><td><span class="green">黄正威</span>（同时任芸泰网络法人）</td><td>—</td></tr>
+    <tr><td>注册地址</td><td>广州市越秀区沿江中路298号中区18楼</td><td>江湾商业中心</td></tr>
+    <tr><td>母公司</td><td><span class="green">杭州恒生芸泰网络科技</span>（持股约43.35%）</td><td>芸泰网络</td></tr>
+    <tr><td>再上级</td><td><span class="green">恒生电子（600570.SH）</span>持有芸泰约26.25%</td><td>恒生电子实控人为马云（2014年以约33亿控股）</td></tr>
+    <tr><td>员工规模</td><td>33人（参保）——对外称50-150人</td><td>差异可能来自外包或集团共享人员</td></tr>
+    <tr><td>企业资质</td><td><span class="green">专精特新中小企业</span>+规上服务业</td><td>拥有药品批发/零售、医疗器械、互联网信息服务等完整资质</td></tr>
+    <tr><td>指导单位</td><td><span class="green">广东省医院协会</span></td><td>行业半官方背书</td></tr>
+  </table>
+  <div class="source">📌 企查查、启信宝、36氪、亿欧数据、浙江省网信办</div>
+
+  <!-- ===== 二、股权与资本路径 ===== -->
+  <h2>二、股权架构与资本背景 <span class="section-tag">资本链</span></h2>
+  <p class="section-summary">芸辉科技处于一条<span class="green">三层股权链</span>的末端：马云 → 恒生电子 → 芸泰网络 → 芸辉科技。这层"阿里系"光环在互联网医疗早期是加分项——支付宝医保支付、阿里健康药品配送、阿里云基础设施都是实打实的生态资源。但三层架构也意味着芸辉科技在公司治理和资本运作上的自主权极小，其命运取决于芸泰网络乃至恒生电子的战略优先级。</p>
+
+  <h3>▎母公司芸泰网络融资历程</h3>
+  <table>
+    <tr><th>时间</th><th>轮次</th><th>金额</th><th>投资方</th></tr>
+    <tr><td>2015.05</td><td>A轮</td><td><span class="green">1亿元</span></td><td>云锋基金、恒生电子</td></tr>
+    <tr><td>2017.12</td><td>A+轮</td><td>未披露</td><td>鑫星伊顿</td></tr>
+    <tr><td>2019.05</td><td>B轮</td><td><span class="green">超1亿元</span></td><td>中电健康基金、朗盛投资</td></tr>
+    <tr><td>2019.12</td><td>B+轮</td><td><span class="green">亿级</span></td><td>中电健康基金</td></tr>
+    <tr><td>2020.02</td><td>股权融资</td><td>未披露</td><td>乾元联合、奥迦特投资</td></tr>
+    <tr><td>2021.07</td><td>C轮</td><td>未披露</td><td>渤海产业投资基金、金沙江创投、奥迦特投资、云锋基金、上海展澎</td></tr>
+    <tr><td>2021.07-至今</td><td><span class="red">超3年无新融资</span></td><td colspan="2">芸泰网络当前估值仅约5亿元（亿欧数据），芸辉科技无独立融资和估值</td></tr>
+  </table>
+
+  <blockquote class="caution">
+    <strong>⚠️ 资本面判断：</strong>母公司芸泰网络累计融资约3.05亿元，共6轮，最新一轮C轮已经是2021年7月。对于一个成立10年的互联网公司，5亿估值和超3年融资停滞意味着：①业务增长可能未达投资人预期；②互联网医疗赛道的风险投资在2022年后急剧降温（春雨医生2.69亿卖身即是最典型案例）；③芸辉科技作为子公司，其可调用的资本和人力资源取决于芸泰网络的整体状况。目前无任何IPO迹象。
+  </blockquote>
+
+  <div class="source">📌 亿欧、企查查、36氪、猎云网、恒生电子年报</div>
+
+  <!-- ===== 三、主营业务 ===== -->
+  <h2>三、主营业务 <span class="section-tag">产品矩阵</span></h2>
+  <p class="section-summary">纯<span class="green">B2B/B2G</span>模式——客户是公立医院和政府卫生部门，收入来自系统建设费+年度维保费+运营分成。不直接面向患者收费、不雇佣自有医生、不与医院抢患者。这个模式在互联网医疗泡沫期被视为"不够性感"，但在2026年行业洗牌期反而成为最稳健的生存策略之一。</p>
+
+  <h3>▎核心产品线</h3>
+  <table>
+    <tr><th>产品</th><th>定位</th><th>代表客户/数据</th></tr>
+    <tr><td><strong>广东云医院</strong></td><td><span class="green">国内首个省级云医院平台</span>——整合医院/医生/药企/保险/物流的线上诊疗全流程</td><td>省内近70家大型医院接入，其中13家获颁广东省首批互联网医院牌照</td></tr>
+    <tr><td><strong>互联网医院建设</strong></td><td>帮公立医院从零搭建互联网医院，对接省监管平台</td><td>中山大学附属第三医院（2025-2027维保90万/年）、广州市第一人民医院</td></tr>
+    <tr><td><strong>处方流转/云药房</strong></td><td>处方从医院流转到社会药房或医药电商，支持"院开店取、网订店送"</td><td>中山二院"电子处方闭环管理及药学协同平台"（2024年中标）、深圳龙华区人民医院（综合得分97分）</td></tr>
+    <tr><td><strong>慢病随访管理</strong></td><td>慢病患者的复诊续方和长期随访数字化运营</td><td>广东省农垦中心医院（¥116万，2024年中标）</td></tr>
+    <tr><td><strong>专科/IVD平台</strong></td><td>体外诊断试剂等专科领域的数字化平台</td><td>南方医科大学南方医院居家腹膜透析智能管控系统</td></tr>
+  </table>
+
+  <h4>商业模式</h4>
+  <table>
+    <tr><th>维度</th><th>详情</th></tr>
+    <tr><td>收入模式</td><td>系统建设费（一次性）+ 年度维保费（经常性）+ 运营分成（少部分）</td></tr>
+    <tr><td>典型客单价</td><td>平台建设项目 100-200万级 + 维保 90万/年（以中山三院为例）</td></tr>
+    <tr><td>目标客户</td><td>广东省内二甲以上公立医院为主，通过政府采购招投标获取订单</td></tr>
+    <tr><td>核心差异化</td><td>广东省医院协会半官方背书 + 恒生电子金融级数据安全 + 阿里生态（支付宝/阿里健康/阿里云）集成</td></tr>
+    <tr><td>生态伙伴</td><td>阿里健康（药品配送）、支付宝（诊中支付）、华润医药（药品供应）、众安保险、阿里云</td></tr>
+  </table>
+
+  <div class="source">📌 中国政府采购网、36氪、中山大学附属第三医院采购公示、微信小程序平台</div>
+
+  <!-- ===== 四、团队与组织 ===== -->
+  <h2>四、团队与组织架构 <span class="section-tag">组织力</span></h2>
+  <p class="section-summary">33人的参保人数，对于一个号称"覆盖全国600+家医院"的公司而言，极度精简。这暗示其业务模式高度依赖：①母公司芸泰网络的技术平台共享；②阿里云等基础设施外包；③单个医院项目的实施可能部分外包。核心团队大概率集中在产品、项目管理和商务拓展，研发由杭州芸泰网络总部承担。</p>
+
+  <h3>▎关键人物</h3>
+  <table>
+    <tr><th>角色</th><th>姓名</th><th>背景</th></tr>
+    <tr><td>法定代表人</td><td>彭涛</td><td>公开信息极少</td></tr>
+    <tr><td>总经理</td><td><span class="green">黄正威</span></td><td>同时担任芸泰网络法定代表人、董事长兼总经理，是芸泰/芸辉体系的实际操盘人</td></tr>
+  </table>
+
+  <div class="infer-warn">
+    ⚠️ 以下组织架构基于招聘岗位职责和业务模式推断，非官方披露。
+  </div>
+  <pre>
+总经理 黄正威（杭州/广州两地）
+├── 项目管理部         医院互联网平台项目实施+交付
+├── 商务拓展部         政府采购招投标+医院关系维护
+├── 运营服务部         云药房运营/慢病管理运营/IVD平台
+├── 产品与需求          需求对接+产品方案（研发由杭州芸泰总部承担）
+└── 行政/资质管理      药品/器械/互联网信息服务等资质维护
+  </pre>
+
+  <h3>▎招聘信号</h3>
+  <p class="note">公司在主流招聘平台公开岗位极少。历史岗位偏低端（如2023年"生物工程助理"仅3-4K/月），反映其广州团队定位为市场和运营执行层，非核心研发。</p>
+  <table>
+    <tr><th>方向</th><th>特征</th><th>信号解读</th></tr>
+    <tr><td>技术/研发</td><td>在广州无公开研发岗位</td><td>研发由杭州芸泰网络总部承担</td></tr>
+    <tr><td>项目/运营</td><td>历史岗位偏执行层，薪资偏低</td><td>广州团队以项目交付和商务为主</td></tr>
+    <tr><td>医疗器械</td><td>2025年6月新增医疗设备租赁/消毒剂销售范围</td><td>可能在向医疗器械线下业务延伸（呼应母公司2024年成立四川芸枫医疗器械公司）</td></tr>
+  </table>
+  <div class="source">📌 猎聘、应届生求职网、企查查经营范围变更记录</div>
+
+  <!-- ===== 五、市场表现与竞争 ===== -->
+  <h2>五、市场表现与竞争格局 <span class="section-tag">赛道 · 竞争</span></h2>
+  <p class="section-summary">2025年中国互联网医疗市场规模4,769亿元（+13%），但增速较2021年43.87%的高点持续回落，用户规模首次出现负增长（-1.68%至4.11亿）。行业正经历<span class="green">"从讲故事到看利润"</span>的残酷洗牌——春雨医生以2.69亿元卖身（较巅峰估值缩水95%）、好大夫在线被蚂蚁收购、微医累计亏损约75亿元仍在冲击IPO。芸辉科技作为B2B区域服务商的定位，在这场洗牌中反而拥有一定的抗风险能力。</p>
+
+  <h3>▎中国互联网医院平台竞争格局</h3>
+  <table>
+    <tr><th>梯队</th><th>代表企业</th><th>模式</th><th>状态</th><th>芸辉科技的差异化</th></tr>
+    <tr><td>🥇 医药电商巨头</td><td>京东健康（营收352亿H1）、阿里健康</td><td>"以药养医"——已盈利</td><td rowspan="5">不做C端、不做药品零售、不做自有医生——只做公立医院的IT服务商。在"所有独立互联网医疗平台都在亏损"的背景下，这个保守定位反而是护城河</td></tr>
+    <tr><td>🥈 独立平台</td><td>微医（累计亏75亿）、圆心科技（6次递表港交所）、好大夫（被蚂蚁收购）</td><td>问诊+药+险闭环——持续亏损</td></tr>
+    <tr><td>🥉 区域服务商</td><td><span class="green">芸辉科技</span>、各地HIS厂商衍生的互联网医院模块</td><td>帮医院建系统——项目制，不烧钱</td></tr>
+    <tr><td>🏅 保险公司系</td><td>平安健康（被平安集团并表）</td><td>服务母公司保险生态</td></tr>
+    <tr><td>🔻 出局者</td><td>春雨医生（2.69亿卖身、缩水95%）</td><td>独立在线问诊——无法盈利</td></tr>
+  </table>
+
+  <h3>▎芸辉科技近2年中标项目一览</h3>
+  <table>
+    <tr><th>时间</th><th>客户</th><th>项目</th><th>金额</th></tr>
+    <tr><td>2025</td><td>中山大学附属第三医院</td><td>2025-2027互联网+医疗信息平台维保</td><td>90万/年</td></tr>
+    <tr><td>2024.10</td><td>广东省农垦中心医院</td><td>慢病随访管理系统建设</td><td>116万元</td></tr>
+    <tr><td>2024.06</td><td>中山大学孙逸仙纪念医院</td><td>电子处方闭环管理及药学协同平台</td><td>未披露</td></tr>
+    <tr><td>2023.12</td><td>中山市人民医院</td><td>互联网智慧诊疗平台</td><td>195万元</td></tr>
+    <tr><td>2025</td><td>深圳市龙华区人民医院</td><td>处方流转平台服务</td><td>综合得分97分中标</td></tr>
+    <tr><td>2025</td><td>广州中医药大学顺德医院</td><td>互联网医院信息平台运营服务</td><td>未披露</td></tr>
+  </table>
+
+  <blockquote class="success">
+    <strong>✅ B2G政府采购模式的优势：</strong>芸辉科技的客户是公立医院、采购走政府招投标流程。这种模式虽然增长慢、天花板低，但收入质量高（政府/公立医院不会赖账）、续费确定性强（系统一旦嵌入HIS就极难替换）。中山三院直接签了3年维保合同，是典型的"land and expand"策略。
+  </blockquote>
+
+  <div class="source">📌 网经社《2025年度中国数字健康市场数据报告》、中国政府采购网、各医院采购公示、钛媒体、第一财经</div>
+
+  <!-- ===== 六、融资与品牌 ===== -->
+  <h2>六、融资与品牌背书 <span class="section-tag">资本 + 品牌</span></h2>
+
+  <h3>▎融资总结</h3>
+  <table>
+    <tr><th>维度</th><th>芸辉科技（子公司）</th><th>芸泰网络（母公司）</th></tr>
+    <tr><td>独立融资</td><td><span class="red">0</span></td><td>6轮、累计约3.05亿元</td></tr>
+    <tr><td>最新轮次</td><td>—</td><td>C轮（2021.07）</td></tr>
+    <tr><td>最新估值</td><td>—</td><td>约5亿元</td></tr>
+    <tr><td>IPO进展</td><td>—</td><td><span class="red">无任何公开IPO计划或进程</span></td></tr>
+  </table>
+
+  <h3>▎品牌背书</h3>
+  <table>
+    <tr><th>类别</th><th>详情</th></tr>
+    <tr><td><span class="green">行业背书</span></td><td>广东省医院协会指导成立——这在广东公立医院体系内是极有价值的"准官方"信任状</td></tr>
+    <tr><td><span class="green">资本光环</span></td><td>马云/恒生电子/云锋基金系的互联网医疗布局，阿里生态（支付宝+阿里健康+阿里云）直接集成</td></tr>
+    <tr><td><span class="green">标杆案例</span></td><td>国内首个省级云医院平台、13家合作医院获广东省首批互联网医院牌照</td></tr>
+    <tr><td><span class="green">行业地位</span></td><td>专精特新中小企业、规上服务业、拥有互联网医疗全链条合规资质</td></tr>
+  </table>
+  <div class="source">📌 36氪、广东省医院协会官网、恒生电子年报</div>
+
+  <!-- ===== 七、风险与战略评估 ===== -->
+  <h2>七、风险与战略评估 <span class="section-tag">关键审视</span></h2>
+  <p class="section-summary">芸辉科技的B2B公立医院服务商定位在互联网医疗泡沫破裂期具有<span class="green">"反脆弱"</span>属性——不烧钱、不补贴C端、不依赖风险投资续命。但这种稳健的另一面是增长天花板明确：广东省内二甲以上医院总数不过数百家，客单价100-200万，市场总容量有限。而走出广东则面临各省本土服务商的竞争和医院协会背书失效的问题。</p>
+
+  <table>
+    <tr><th>风险主线</th><th>具体表现</th><th>影响评估</th></tr>
+    <tr><td><span class="red">APP隐私合规风险</span></td><td>2023年1月浙江网信办查处芸泰网络两款医院APP（毓璜顶医院、中日友好医院）——违规收集个人信息、未提供删除/更正功能、未公布投诉举报方式等5项违规，被要求50日内整改</td><td>直接关联：医院APP是芸泰/芸辉的核心交付物，隐私不合规在2026年《个人信息保护法》趋严背景下可能影响新客户招投标资格</td></tr>
+    <tr><td><span class="red">母公司融资停滞</span></td><td>芸泰网络2021年C轮至今超3年无融资、估值仅5亿。早期投资方（云锋基金2015年进入）已有11年，面临退出压力</td><td>如果芸泰网络资金紧张，芸辉科技作为子公司可能面临预算压缩或被迫"自给自足"</td></tr>
+    <tr><td><span class="red">团队体量与业务规模不匹配</span></td><td>33人参保却号称覆盖600+医院——平均每人服务18家医院，难以想象能提供深度服务</td><td>可能存在大量"签了但没真正用起来"的僵尸医院，或者交付高度依赖外包</td></tr>
+    <tr><td><span class="red">行业天花板</span></td><td>广东公立二甲以上医院约300-400家，假设客单价150万+年维保50万，存量市场总规模仅约6-10亿元</td><td>即使做到省内第一，天花板也清晰可见</td></tr>
+    <tr><td><span class="green">阿里生态协同</span></td><td>支付宝医保支付+阿里健康药品配送+阿里云基础设施的集成能力是独立竞品不具备的</td><td>在广东省内招投标中仍是加分项</td></tr>
+    <tr><td><span class="green">医疗器械延伸</span></td><td>2024年芸泰成立四川芸枫医疗器械公司、2025年芸辉新增医疗设备经营——从纯软件向"软硬件+耗材"延伸</td><td>医疗器械是比纯软件更高客单价、更强粘性的赛道</td></tr>
+  </table>
+
+  <blockquote class="warn">
+    <strong>⚠️ 合规风险详述：</strong>2023年1月，浙江省网信办依法查处173款违法违规APP，其中包括芸泰网络开发的"毓璜顶医院"和"中日友好医院"两款APP。违规内容包括：未明示收集使用个人信息的目的/方式/范围、未经用户同意收集使用个人信息、违反必要原则收集无关个人信息、未提供删除或更正个人信息功能、未公布投诉举报方式。这5项违规几乎囊括了《个人信息保护法》的主要红线。虽然被责令整改而非直接下架，但说明公司在2023年时的数据合规意识和能力存在系统性不足。鉴于这两款APP的运营方与芸辉科技同属芸泰网络体系，其平台技术架构大概率是共享的，芸辉科技服务的广东医院互联网平台是否已彻底修复同类问题，需要直接验证。
+  </blockquote>
+
+  <div class="source">📌 浙江省网信办（2023年1月）、中国政府采购网、亿欧、网经社</div>
+
+  <hr>
+
+  <!-- ===== 附录 ===== -->
+  <h2><span class="appendix-label">附录</span> 互联网医疗行业整合大事记</h2>
+
+  <h3>▎2024-2026年行业标志性整合事件</h3>
+  <table class="timeline-table">
+    <tr><th>时间</th><th>事件</th><th>启示</th></tr>
+    <tr><td>2024</td><td>好大夫在线被蚂蚁集团全资收购，并入支付宝医疗健康事业部</td><td>独立在线问诊平台无法独立生存，最终成为巨头的功能插件</td></tr>
+    <tr><td>2024</td><td>平安好医生被平安集团并表</td><td>保险系医疗平台回归服务母公司主业的工具角色</td></tr>
+    <tr><td>2025</td><td>春雨医生被国锐生活以2.69亿元收购，估值较巅峰缩水95%</td><td>从独角兽到"白菜价"，纯在线问诊的故事被市场彻底证伪</td></tr>
+    <tr><td>2025H1</td><td>微医健康管理会员收入23.89亿元（+131%），但持续亏损约75亿元</td><td>即使找到医保控费这一差异化入口，盈利仍然遥遥无期</td></tr>
+    <tr><td>2026.04</td><td>圆心科技第六次递表港交所</td><td>资本退出压力驱动IPO"屡败屡战"</td></tr>
+    <tr><td>2025.06</td><td>芸辉科技经营范围新增医疗设备租赁、消毒剂销售</td><td>从纯软件向"软件+器械+耗材"延伸</td></tr>
+  </table>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    本简报基于公开信息整理，仅供内部参考。数据采集自企查查、启信宝、36氪、亿欧、网经社、中国政府采购网、浙江省网信办、恒生电子年报等公开渠道（2026-05-03）。<br>
+    芸泰网络估值数据来自亿欧，非官方披露。APP隐私违规信息来自浙江网信办官方通报。合作医院数量为公司单方宣传口径，实际活跃医院数可能低于公布数字。
+  </div>
+
+</div>
+</div>
+</body>
+</html>
